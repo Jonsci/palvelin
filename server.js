@@ -2,12 +2,29 @@ const express = require('express')
 const app = express()
 const vaatteet = require('./vaatteet.json')
 const path = require('path')
-
+const cors = require('cors')
+const fs = require('fs').promises
 
 //Tehdään polkumääritys frontend kansioon
 const fronttipolku = path.join(__dirname, './frontend')
 
-//Sanotaan että em. polussa on tiedonsisältöä
+app.use(cors())
+
+app.get('/api/login', async (req, res) => {
+    try {
+        //Tiedoston lukeminen
+        const savedPin = await fs.readFile('./pin.txt','utf-8')
+
+        //Luetun tiedon lähettäminen clientille
+        res.send(savedPin)
+
+    }catch (error) {
+        res.status(500).send('Internal Server Error')
+    }
+
+})
+
+//Sanotaan että em. polussa on tiedonsisältöä,
 //jota palvelin käyttää kun se saa http requestin
 app.use(express.static(fronttipolku))
 

@@ -1,5 +1,5 @@
 
-[{"id":1, "kategoria":"paidat", "nimike":"Nike,","hinta": 69.90},
+[{"id":1, "kategoria":"paidat", "nimike":"Nike","hinta": 69.90},
  {"id":2, "kategoria":"housut", "nimike":"Adidas","hinta": 99.90},
  {"id":3, "kategoria":"takit", "nimike":"Oakley","hinta": 239.90},
  {"id":4, "kategoria":"tpaidat", "nimike":"Peakperformance","hinta": 46.90}]
